@@ -1,0 +1,726 @@
+/* ---------------------------------
+   GLOBAL / BODY / TYPOGRAPHY
+---------------------------------- */
+body {
+    font-family: Calibri, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    color: rgb(0, 123, 255);
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    z-index: 10;
+}
+
+p {
+    text-align: center;
+}
+
+title {
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------
+   TABLE-STYLING
+---------------------------------- */
+table {
+    text-align: center;
+    margin: 0 auto;
+    width: auto;
+    display: table;
+    position: relative;
+    font-family: Calibri;
+    font-size: 1.3em;
+    overflow-y: hidden;
+    z-index: 2;
+}
+
+thead {
+    position: relative;
+    top: 20px; /* KEEP AS REQUESTED */
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 5px;
+    background-color: rgb(118, 164, 209);
+}
+
+tbody {
+    position: relative;
+    top: 16px;
+}
+
+tr {
+    height: 40px;
+}
+
+tr > td {
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+}
+
+table td:last-child {
+    text-align: right;
+    font-family: monospace;
+}
+
+table td:last-child::after {
+    content: '';
+    display: inline-block;
+    width: 1ch;
+}
+
+/* Table container & wrapper */
+.table-container {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.table-wrapper {
+    flex: 1;
+    overflow: auto;
+    z-index: 1;
+}
+
+/* Additional tables with fixed widths (unchanged) */
+.total_balance {
+    width: 40vw; /* KEEP AS REQUESTED */
+}
+
+.credit_card {
+    width: 75vw; /* KEEP AS REQUESTED */
+}
+
+.table_payees,
+.table_categories {
+    text-align: center;
+    z-index: 1;
+}
+
+.payee, .type,
+.category {
+    display: table;
+    margin: 0 auto;
+    height: 40px;
+    text-align: center;
+    font-family: Calibri;
+    font-size: 1.3em;
+    z-index: 20;
+    width: auto; /* KEEP AS REQUESTED */
+}
+
+/* ---------------------------------
+   GRID-STYLING
+---------------------------------- */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'r1c1 r1c2'
+        'r2c1 r2c2'
+        'r3c1 r3c2'
+        'r4c1 r4c2'
+        'r5c1 r5c2'
+        'r6c1 r6c2';
+    grid-column-gap: 10px;
+    height: 25vh;
+    width: 30vw;
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-areas: 'r1c1 r1c2';
+    grid-column-gap: 10px;
+    height: 5vh;
+    width: 30vw;
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+/* Individual grid items */
+.item1 {
+    grid-area: r1c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item2 {
+    grid-area: r1c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item3 {
+    grid-area: r2c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item4 {
+    grid-area: r2c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item5 {
+    grid-area: r3c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item6 {
+    grid-area: r3c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item7 {
+    grid-area: r4c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item8 {
+    grid-area: r4c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item9 {
+    grid-area: r5c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item10 {
+    grid-area: r5c2;
+    height: 25px;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.item11 {
+    grid-area: r6c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item12 {
+    grid-area: r6c2;
+    height: 25px;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+li {
+    padding: 0 5px;
+}
+
+/* ---------------------------------
+   FLEX-STYLING
+---------------------------------- */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 35vw;
+    margin: 20px auto 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    padding-bottom: 5px;
+}
+
+.flex-container-2 {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 12vw;
+    margin: 20px auto 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    padding-bottom: 5px;
+}
+
+
+/* ---------------------------------
+   FORMS / INPUTS / BUTTONS
+---------------------------------- */
+form {
+    width: 90vw;
+    margin: 20px auto;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3em;
+}
+
+
+select:invalid {
+    color: gray;
+    height: 2em;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+}
+
+select,
+option,
+input {
+    width: 30%;
+    display: block;
+    margin: auto;
+    border: none;
+    height: 2em;
+    border-bottom: 1px solid rgb(120, 136, 223);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    font-family: Calibri, sans-serif;
+}
+
+input[type="submit"],
+[type="button"] {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    width: 15vw;
+    cursor: pointer;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 1em;
+    padding: 0;
+}
+
+input[type="submit"]:hover,
+[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.edit_page_buttons {
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    margin: 5vh auto 0 auto;
+}
+
+/* Extra button styling */
+.button {
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    width: 10vw;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* ---------------------------------
+   NAVIGATION & LINKS
+   (Positions and widths left unchanged)
+---------------------------------- */
+nav {
+    z-index: 1000;
+}
+
+.nav-fixed {
+    position: sticky;
+    top: 20px;
+    background-color: #fff;
+    max-height: 200px;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center; /* Centers the navbar */
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center; /* Centers all nav items */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    background-color: white;
+}
+
+
+.navbar a {
+    display: inline-block;
+    width: auto;
+    position: relative;
+}
+
+
+ul {
+    padding-inline-start: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    width: auto;
+    margin-top: 5px;
+    display: block;
+}
+
+a:hover {
+    color: #007BFF;
+}
+
+.activePage {
+    border-bottom: solid 2px #007BFF;
+    display: inline-block; /* Ensures the border only spans the text width */
+    width: max-content; /* Ensures it only takes up as much space as the text */
+    padding-bottom: 3px; /* Prevents extra spacing */
+    white-space: nowrap; /* Ensures the text stays on one line */
+    text-align: center; /* Aligns the text properly */
+}
+
+
+.inActivePage {
+    border-bottom: none;
+}
+
+.activePage::after {
+    content: "";
+    display: block;
+    width: fit-content; /* Ensures underline matches text width */
+    min-width: auto; /* Prevents stretching */
+    height: 2px; /* Adjust thickness */
+    background-color: #007bff; /* Adjust color */
+    position: absolute;
+    left: 50%; /* Centers the underline */
+    bottom: -2px; /* Positions the underline slightly below text */
+    transform: translateX(-50%); /* Ensures it aligns with text width */
+}
+
+
+/* Style dropdown container */
+/*.dropdown-container {*/
+/*    position: relative;*/
+/*    display: inline-block; !* Ensures it behaves like a regular nav item *!*/
+/*    min-width: auto; !* Removes fixed width that might be affecting alignment *!*/
+/*    margin: 0 10px; !* Keeps spacing consistent *!*/
+/*    text-align: center;*/
+/*    z-index: 1000;*/
+/*}*/
+
+.dropdown-container {
+    position: relative;
+    display: inline-block; /* Prevents stretching */
+    text-align: center;
+    width: fit-content;
+}
+
+
+/* Remove link styling for 'Manage' */
+.dropdown-toggle {
+    padding: 6px;
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Dropdown menu styling */
+.dropdown {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0 5px;
+    z-index: 1000;
+    width: auto; /* Ensures dropdown only fits the text */
+    min-width: 150px; /* Prevents it from becoming too small */
+}
+
+.dropdown li {
+    display: block;
+    width: auto; /* Prevents full-width stretching */
+    margin: 0 auto; /* Centers the list item */
+}
+
+
+.dropdown li a {
+    display: inline-block;
+    width: fit-content; /* Matches the text width */
+    padding: 3px 0;
+    text-align: left;
+    white-space: nowrap; /* Ensures text stays on one line */
+}
+
+
+/* Show dropdown on hover */
+.dropdown-container:hover .dropdown {
+    display: block;
+    width: fit-content; /* Prevents dropdown from stretching */
+    min-width: 150px;
+}
+
+
+/*!* Dropdown menu items *!*/
+/*.dropdown li {*/
+/*    display: block;*/
+/*    width: fit-content; !* Matches width to text *!*/
+/*    margin: 0 auto; !* Centers the item if needed *!*/
+/*}*/
+
+/*.dropdown li a {*/
+/*    white-space: nowrap; !* Prevents text from wrapping *!*/
+/*    display: inline-block; !* Ensures the links take up the full width *!*/
+/*    padding: 5px 12px; !* Adds some padding for better spacing *!*/
+/*    text-align: left; !* Keeps alignment consistent *!*/
+/*    width: fit; !* Only as wide as the text *!*/
+/*    min-width: 150px; !* Ensures a reasonable minimum width *!*/
+/*}*/
+
+
+.dropdown li a:hover {
+    background-color: #f0f0f0;
+}
+
+
+li:hover .dropdown {
+    display: block; /* Ensures dropdown takes up proper width */
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content; /* Ensures it only fits the content */
+    min-width: 150px; /* Ensures consistency */
+    padding: 5px 0; /* Adds slight padding */
+}
+
+
+.padding-right {
+    padding-right: 30px;
+}
+
+/* ---------------------------------
+   UTILIZATION & DATES
+---------------------------------- */
+.utilization {
+    color: black; /* Default color */
+}
+
+.high-utilization {
+    color: red; /* Overrides .utilization */
+}
+
+.date-due {
+    color: black;
+}
+
+.due-soon {
+    color: green;
+}
+
+.closing-date {
+    color: black;
+}
+
+.closing-today {
+    color: green;
+}
+
+/* ---------------------------------
+   HEADER SPACING
+---------------------------------- */
+.header-spacing {
+    background-color: white;
+    height: 75px;
+    width: 100%;
+    z-index: 995;
+    position: fixed;
+}
+
+/* ---------------------------------
+   LAST-COLUMN TEXT ALIGN
+---------------------------------- */
+.text-last-column td:last-child {
+    text-align: center;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+}
+
+/* ---------------------------------
+   ACCOUNTS
+---------------------------------- */
+.accounts tr > td:last-of-type {
+    text-align: center;
+}
+
+.account-table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.account-table th, .account-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.account-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Pagination Styling */
+.pagination {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Filter Form Layout */
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Keep all filters on one row */
+.filter-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap; /* ✅ Prevents wrapping */
+}
+
+/* Force uniform height for all input elements */
+.filter-group select,
+.filter-group input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 130px;
+    font-size: 14px;
+    height: 36px !important; /* ✅ Ensures all elements have the same height */
+    line-height: normal;
+}
+
+/* ✅ Fix stubborn date input height inconsistencies */
+.filter-group input[type="date"] {
+    height: 36px !important; /* ✅ Force height to match dropdowns */
+    min-width: 140px;
+    padding: 6px;
+    font-size: 14px;
+    line-height: normal;
+    display: block; /* ✅ Forces proper rendering */
+    box-sizing: border-box; /* ✅ Prevents unintended size adjustments */
+    -webkit-appearance: none; /* ✅ Chrome/Safari fix */
+    -moz-appearance: none; /* ✅ Firefox fix */
+    appearance: none; /* ✅ Standardize appearance */
+}
+
+/* Center the filter buttons */
+.filter-submit {
+    display: flex;
+    justify-content: center; /* ✅ Ensures perfect horizontal centering */
+    align-items: center; /* ✅ Ensures perfect vertical alignment */
+    gap: 10px; /* ✅ Fine-tuned spacing */
+    margin-top: 10px;
+    width: 100%; /* ✅ Prevents shifting */
+}
+
+/* Apply Filters and Clear Filters button */
+.filter-submit button,
+.filter-submit .clear-filters {
+    display: flex; /* ✅ Ensures both elements behave identically */
+    align-items: center; /* ✅ Centers text perfectly */
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #007bff; /* ✅ Matches Apply Filters button */
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 36px; /* ✅ Forces identical height */
+    min-width: 120px; /* ✅ Ensures width consistency */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* ✅ Removes underline */
+    border: 1px solid #007bff; /* ✅ Ensures identical borders */
+    box-sizing: border-box; /* ✅ Prevents unintended size adjustments */
+    vertical-align: middle; /* ✅ Forces perfect vertical alignment */
+}
+
+/* Specific fix for Clear Filters button */
+.filter-submit .clear-filters {
+    line-height: 36px; /* ✅ Ensures text inside the button matches */
+    font-weight: normal; /* ✅ Prevents text shifting */
+}
+
+.clear-filters {
+    margin-top: 2px;
+}
+
+/* Hover effect for both buttons */
+.filter-submit button:hover,
+.filter-submit .clear-filters:hover {
+    background-color: #0056b3; /* ✅ Darker blue on hover */
+    border-color: #0056b3; /* ✅ Keeps border color consistent */
+}

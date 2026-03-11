@@ -1,0 +1,20 @@
+{
+  "name": "wrpur/accounts-app2",
+  "authors": [
+    {
+      "name": "Randy Purcell"
+    }
+  ],
+  "require": {
+    "illuminate/collections": "^11.40",
+    "atlas/orm": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/"
+    }
+  },
+  "scripts": {
+    "test": "php test/run.php"
+  }
+}

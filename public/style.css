@@ -1,0 +1,806 @@
+/* ---------------------------------
+   GLOBAL / BODY / TYPOGRAPHY
+---------------------------------- */
+body {
+    font-family: Calibri, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    color: #6e95f0;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    z-index: 10;
+}
+
+p {
+    text-align: center;
+}
+
+title {
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------
+   TABLE-STYLING
+---------------------------------- */
+table {
+    text-align: center;
+    margin: -10px auto 0px auto;
+    width: auto;
+    display: table;
+    position: relative;
+    font-family: Calibri;
+    font-size: 1.3em;
+    overflow-y: hidden;
+    z-index: 2;
+}
+
+thead {
+    position: relative;
+    top: 20px; /* KEEP AS REQUESTED */
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 5px;
+    background-color: #6e95f0;
+}
+
+tbody {
+    position: relative;
+    top: 16px;
+}
+
+tr {
+    height: 40px;
+}
+
+tr > td {
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+}
+
+table td:last-child {
+    text-align: right;
+    font-family: monospace;
+}
+
+table td:last-child::after {
+    content: '';
+    display: inline-block;
+    width: 1ch;
+}
+
+.filter-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+    white-space: nowrap;
+}
+
+.filter-checkbox {
+    position: relative;
+    top: 1px;
+}
+
+.filter-checkbox input[type="checkbox"] {
+    transform: scale(0.95);
+}
+
+/* Table container & wrapper */
+.table-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.table-wrapper {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Additional tables with fixed widths (unchanged) */
+.total_balance {
+    width: 40vw; /* KEEP AS REQUESTED */
+}
+
+.credit_card {
+    width: 75vw; /* KEEP AS REQUESTED */
+}
+
+/* Center the print button in the toolbar */
+/* Keep the toolbar only for centering */
+.toolbar.no-print {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style the Print button/link */
+.toolbar.no-print .btn {
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #6e95f0;
+    color: #000;
+    padding: 8px 14px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Hover state */
+.toolbar.no-print .btn:hover {
+    background: #000;
+    color: #6e95f0;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table_payees,
+.table_categories {
+    text-align: center;
+    z-index: 1;
+}
+
+.payee, .type,
+.category {
+    display: table;
+    margin: 0 auto;
+    height: 40px;
+    text-align: center;
+    font-family: Calibri;
+    font-size: 1.3em;
+    z-index: 20;
+    width: auto; /* KEEP AS REQUESTED */
+}
+
+/* ---------------------------------
+   GRID-STYLING
+---------------------------------- */
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'r1c1 r1c2'
+        'r2c1 r2c2'
+        'r3c1 r3c2'
+        'r4c1 r4c2'
+        'r5c1 r5c2'
+        'r6c1 r6c2';
+    grid-column-gap: 10px;
+    height: 25vh;
+    width: 30vw;
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-areas: 'r1c1 r1c2';
+    grid-column-gap: 10px;
+    height: 5vh;
+    width: 30vw;
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+/* Individual grid items */
+.item1 {
+    grid-area: r1c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item2 {
+    grid-area: r1c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item3 {
+    grid-area: r2c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item4 {
+    grid-area: r2c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item5 {
+    grid-area: r3c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item6 {
+    grid-area: r3c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item7 {
+    grid-area: r4c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item8 {
+    grid-area: r4c2;
+    height: 25px;
+    width: 100%;
+}
+
+.item9 {
+    grid-area: r5c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item10 {
+    grid-area: r5c2;
+    height: 25px;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.item11 {
+    grid-area: r6c1;
+    height: 25px;
+    text-align: right;
+}
+
+.item12 {
+    grid-area: r6c2;
+    height: 25px;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+li {
+    padding: 0 5px;
+}
+
+/* ---------------------------------
+   FLEX-STYLING
+---------------------------------- */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 35vw;
+    margin: 20px auto 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    padding-bottom: 5px;
+}
+
+.flex-container-2 {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 12vw;
+    margin: 20px auto 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    padding-bottom: 5px;
+}
+
+/* ---------------------------------
+   FORMS / INPUTS / BUTTONS
+---------------------------------- */
+form {
+    width: 90vw;
+    margin: 10px auto 40px auto;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3em;
+}
+
+select:invalid {
+    color: gray;
+    height: 2em;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+}
+
+select,
+option,
+input {
+    width: 30%;
+    display: block;
+    margin: auto;
+    border: none;
+    height: 2em;
+    border-bottom: 1px solid rgb(120, 136, 223);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    font-family: Calibri, sans-serif;
+}
+
+input[type="submit"],
+[type="button"] {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #6e95f0;
+    color: white;
+    border: 2px #000 solid;
+    width: 15vw;
+    cursor: pointer;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 1em;
+    padding: 0;
+}
+
+input[type="submit"]:hover,
+[type="button"]:hover {
+    background-color: #fff;
+    color: #6e95f0;
+}
+
+.edit_page_buttons {
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    margin: 5vh auto 0 auto;
+}
+
+/* Extra button styling */
+.button {
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    color: white;
+    background-color: #6e95f0;
+    border: 2px solid #000;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    width: 10vw;
+}
+
+.button:hover {
+    background-color: #fff;
+    color: #6e95f0;
+    border-color: #6e95f0;
+}
+
+/* ---------------------------------
+   NAVIGATION & LINKS
+---------------------------------- */
+nav {
+    z-index: 1000;
+}
+
+.nav-fixed {
+    position: sticky;
+    top: 20px;
+    background-color: #fff;
+    max-height: 200px;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    background-color: white;
+}
+
+.navbar a {
+    display: inline-block;
+    width: auto;
+    position: relative;
+}
+
+ul {
+    padding-inline-start: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    width: auto;
+    margin-top: 5px;
+    display: block;
+}
+
+a:hover {
+    color: #6e95f0;
+}
+
+.activePage {
+    border-bottom: solid 2px #6e95f0;
+    display: inline-block;
+    width: max-content;
+    padding-bottom: 3px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.inActivePage {
+    border-bottom: none;
+}
+
+.activePage::after {
+    content: "";
+    display: block;
+    width: fit-content;
+    min-width: auto;
+    height: 2px;
+    background-color: #6e95f0;
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    transform: translateX(-50%);
+}
+
+/* Style dropdown container */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+}
+
+/* Remove link styling for 'Manage' */
+.dropdown-toggle {
+    padding: 6px;
+    display: block;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Dropdown menu styling */
+.dropdown {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0 5px;
+    z-index: 1000;
+    width: auto;
+    min-width: 150px;
+}
+
+.dropdown li {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+}
+
+.dropdown li a {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Show dropdown on hover */
+.dropdown-container:hover .dropdown {
+    display: block;
+    width: fit-content;
+    min-width: 150px;
+}
+
+.dropdown li a:hover {
+    background-color: #f0f0f0;
+}
+
+li:hover .dropdown {
+    display: block;
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content;
+    min-width: 150px;
+    padding: 5px 0;
+}
+
+.padding-right {
+    padding-right: 30px;
+}
+
+/* ---------------------------------
+   UTILIZATION & DATES
+---------------------------------- */
+.utilization {
+    color: black;
+}
+
+.high-utilization {
+    color: red;
+}
+
+.date-due {
+    color: black;
+}
+
+.due-soon {
+    color: green;
+}
+
+.closing-date {
+    color: black;
+}
+
+.closing-today {
+    color: green;
+}
+
+/* ---------------------------------
+   HEADER SPACING
+---------------------------------- */
+.header-spacing {
+    background-color: white;
+    height: 75px;
+    width: 100%;
+    z-index: 995;
+    position: fixed;
+}
+
+/* ---------------------------------
+   LAST-COLUMN TEXT ALIGN
+---------------------------------- */
+.text-last-column td:last-child {
+    text-align: center;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+}
+
+/* ---------------------------------
+   ACCOUNTS
+---------------------------------- */
+.accounts tr > td:last-of-type {
+    text-align: center;
+}
+
+.account-table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.account-table th, .account-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.account-table th {
+    background-color: #6e95f0;
+    font-weight: bold;
+}
+
+/* Pagination Styling */
+.pagination {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #6e95f0;
+    color: #fff;
+}
+
+.pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Filter Form Layout */
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Keep all filters on one row */
+.filter-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+/* Force uniform height for all input elements */
+.filter-group select,
+.filter-group input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 130px;
+    font-size: 14px;
+    height: 36px !important;
+    line-height: normal;
+}
+
+.filter-group input[type="date"] {
+    height: 36px !important;
+    min-width: 140px;
+    padding: 6px;
+    font-size: 14px;
+    line-height: normal;
+    display: block;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.filter-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.filter-submit button,
+.filter-submit .clear-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #6e95f0;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 36px;
+    min-width: 120px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.filter-submit .clear-filters {
+    line-height: 36px;
+    font-weight: normal;
+}
+
+.clear-filters {
+    margin-top: 2px;
+}
+
+.filter-submit button:hover,
+.filter-submit .clear-filters:hover {
+    background-color: #fff;
+    border-color: #000;
+    color: #6e95f0;
+}
+
+tr.is-unposted td {
+    opacity: 0.75;
+    font-style: italic;
+}
+
+tr.is-unposted td:first-child::before {
+    content: "UNPOSTED ";
+    font-weight: bold;
+    font-style: normal;
+    opacity: 0.85;
+}
+
+tr.is-unposted td {
+    background-color: rgba(220, 80, 80, 0.18);
+}
+
+tr.is-unposted:hover td {
+    background-color: rgba(220, 80, 80, 0.28);
+}
+
+/* ---------------------------------
+   ACCOUNTS TABLE OVERRIDES (FIX)
+---------------------------------- */
+table.accounts-table {
+    width: auto;
+    margin: -10px auto 0px auto;
+}
+
+table.accounts-table td:last-child {
+    text-align: center;
+    font-family: Calibri, sans-serif;
+}
+
+table.accounts-table td:last-child::after {
+    content: none;
+    display: none;
+}
+
+table.accounts-table form {
+    width: auto;
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+    font-size: inherit;
+}
+
+table.accounts-table button {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #6e95f0;
+    color: white;
+    border: 2px #000 solid;
+    cursor: pointer;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    padding: 4px 10px;
+}
+
+table.accounts-table button:hover {
+    background-color: #fff;
+    color: #6e95f0;
+}
