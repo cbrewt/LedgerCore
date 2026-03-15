@@ -12,7 +12,6 @@ body {
     overflow-y: auto;
 }
 
-
 h1 {
     text-align: center;
 }
@@ -43,7 +42,7 @@ table {
     width: auto;
     display: table;
     position: relative;
-    font-family: Calibri;
+    font-family: Calibri, sans-serif;
     font-size: 1.3em;
     overflow-y: hidden;
     z-index: 2;
@@ -51,7 +50,7 @@ table {
 
 thead {
     position: relative;
-    top: 20px; /* KEEP AS REQUESTED */
+    top: 20px;
 }
 
 thead th {
@@ -96,9 +95,6 @@ table td:last-child::after {
     font-weight: normal;
     color: #333;
     white-space: nowrap;
-}
-
-.filter-checkbox {
     position: relative;
     top: 1px;
 }
@@ -121,24 +117,24 @@ table td:last-child::after {
     overflow-y: auto;
 }
 
-/* Additional tables with fixed widths (unchanged) */
+/* Additional tables with fixed widths */
 .total_balance {
-    width: 40vw; /* KEEP AS REQUESTED */
+    width: 40vw;
 }
 
 .credit_card {
-    width: 75vw; /* KEEP AS REQUESTED */
+    width: 75vw;
 }
 
-/* Center the print button in the toolbar */
-/* Keep the toolbar only for centering */
+/* ---------------------------------
+   TOOLBAR / PRINT
+---------------------------------- */
 .toolbar.no-print {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Style the Print button/link */
 .toolbar.no-print .btn {
     border: 2px solid #000;
     border-radius: 5px;
@@ -150,7 +146,6 @@ table td:last-child::after {
     display: inline-block;
 }
 
-/* Hover state */
 .toolbar.no-print .btn:hover {
     background: #000;
     color: #6e95f0;
@@ -168,16 +163,17 @@ table td:last-child::after {
     z-index: 1;
 }
 
-.payee, .type,
+.payee,
+.type,
 .category {
     display: table;
     margin: 0 auto;
     height: 40px;
     text-align: center;
-    font-family: Calibri;
+    font-family: Calibri, sans-serif;
     font-size: 1.3em;
     z-index: 20;
-    width: auto; /* KEEP AS REQUESTED */
+    width: auto;
 }
 
 /* ---------------------------------
@@ -612,7 +608,8 @@ li:hover .dropdown {
     font-family: Arial, sans-serif;
 }
 
-.account-table th, .account-table td {
+.account-table th,
+.account-table td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
@@ -623,7 +620,9 @@ li:hover .dropdown {
     font-weight: bold;
 }
 
-/* Pagination Styling */
+/* ---------------------------------
+   PAGINATION
+---------------------------------- */
 .pagination {
     text-align: center;
     margin-top: 5px;
@@ -654,7 +653,9 @@ li:hover .dropdown {
     color: #333;
 }
 
-/* Filter Form Layout */
+/* ---------------------------------
+   FILTER FORM
+---------------------------------- */
 .filter-form {
     display: flex;
     flex-direction: column;
@@ -662,7 +663,6 @@ li:hover .dropdown {
     margin-bottom: 10px;
 }
 
-/* Keep all filters on one row */
 .filter-group {
     display: flex;
     align-items: center;
@@ -671,7 +671,6 @@ li:hover .dropdown {
     flex-wrap: nowrap;
 }
 
-/* Force uniform height for all input elements */
 .filter-group select,
 .filter-group input {
     padding: 6px;
@@ -741,9 +740,13 @@ li:hover .dropdown {
     color: #6e95f0;
 }
 
+/* ---------------------------------
+   UNPOSTED ROWS
+---------------------------------- */
 tr.is-unposted td {
     opacity: 0.75;
     font-style: italic;
+    background-color: rgba(220, 80, 80, 0.18);
 }
 
 tr.is-unposted td:first-child::before {
@@ -753,16 +756,12 @@ tr.is-unposted td:first-child::before {
     opacity: 0.85;
 }
 
-tr.is-unposted td {
-    background-color: rgba(220, 80, 80, 0.18);
-}
-
 tr.is-unposted:hover td {
     background-color: rgba(220, 80, 80, 0.28);
 }
 
 /* ---------------------------------
-   ACCOUNTS TABLE OVERRIDES (FIX)
+   ACCOUNTS TABLE OVERRIDES
 ---------------------------------- */
 table.accounts-table {
     width: auto;
@@ -801,6 +800,49 @@ table.accounts-table button {
 }
 
 table.accounts-table button:hover {
+    background-color: #fff;
+    color: #6e95f0;
+}
+
+/* ---------------------------------
+   ACCOUNTS ACTIONS CLEANUP
+---------------------------------- */
+.accounts-actions {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.accounts-action-form {
+    width: auto;
+    margin: 0 4px 4px 0;
+    display: inline-block;
+    text-align: center;
+    font-size: inherit;
+}
+
+.accounts-action-link,
+.accounts-action-button {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: #6e95f0;
+    color: white;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.accounts-action-link {
+    margin-top: 0;
+}
+
+.accounts-action-link:hover,
+.accounts-action-button:hover {
     background-color: #fff;
     color: #6e95f0;
 }
