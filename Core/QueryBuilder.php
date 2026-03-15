@@ -9,12 +9,14 @@ class QueryBuilder
         FROM transactions t
         INNER JOIN rpaccounts rp ON t.rpaccount_id = rp.id
         INNER JOIN transaction_types tt ON t.type_id = tt.id
-        INNER JOIN payees p ON t.payee_id = p.id
+        LEFT JOIN payees p ON t.payee_id = p.id
         INNER JOIN categories c ON t.category_id = c.id
     ';
+
     private const TRANSACTIONS_COLUMNS = '
         t.id, t.transaction_date, rp.account_name, tt.type_name, p.payee_name, c.category_name, t.amount
     ';
+
     private const BALANCES_CONDITIONS = [
         'totalChecking' => 'rpaccount_id IN (SELECT id FROM rpaccounts WHERE account_type_id = 3)',
         'totalCreditCard' => 'rpaccount_id IN (SELECT id FROM rpaccounts WHERE account_type_id = 1)',
@@ -34,10 +36,9 @@ class QueryBuilder
             'types' => self::buildCrudQueries('transaction_types', 'type_name'),
             'credit_cards' => self::buildCreditCardQueries(),
             'totals' => self::buildTotalsQueries(),
-            'updates' => self::buildUpdateQueries() // ✅ Add update queries
+            'updates' => self::buildUpdateQueries()
         ];
     }
-
 
     // Helper functions to build queries dynamically
     private static function buildTransactionQueries(): array
@@ -71,7 +72,6 @@ class QueryBuilder
         ];
     }
 
-
     private static function buildAccountTypeQueries(): array
     {
         return [
@@ -82,11 +82,13 @@ class QueryBuilder
     private static function buildBalanceQueries(): array
     {
         $queries = [];
+
         foreach (self::BALANCES_CONDITIONS as $key => $condition) {
             $column = ($key === 'totalSavings') ? 'balance' : 'amount';
             $table = ($key === 'totalSavings') ? 'account_balances' : 'transactions';
             $queries[$key] = self::buildSumQuery($column, $table, $condition);
         }
+
         return $queries;
     }
 
@@ -158,5 +160,4 @@ class QueryBuilder
                              SET ab.balance = calculated.total_balance"
         ];
     }
-
 }

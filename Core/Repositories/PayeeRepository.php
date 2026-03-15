@@ -40,4 +40,3 @@ class PayeeRepository extends BaseRepository
         return DatabaseHelper::delete(self::$table, $id) ? true : false;
     }
 }
-

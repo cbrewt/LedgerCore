@@ -142,7 +142,8 @@ abstract class NamedEntityCrudController extends Controller
             'row' => $row,
             'field' => $config['field'],
             'formAction' => $config['deletePath'],
-            'cancelPath' => $config['showPath']
+            'cancelPath' => $config['showPath'],
+            'error' => null
         ]);
     }
 
@@ -153,8 +154,11 @@ abstract class NamedEntityCrudController extends Controller
         $config = $this->config();
         $id = $this->requirePositiveIdFromPost();
 
-        $this->deleteRecord($id);
-        $this->redirect($config['listPath']);
+        if ($this->deleteRecord($id)) {
+            $this->redirect($config['listPath']);
+        }
+
+        $this->renderDestroyWithError($id, 'Failed to delete record. It may still be in use.');
     }
 
     protected function normalizeRecord($record, string $field): ?array
@@ -227,4 +231,23 @@ abstract class NamedEntityCrudController extends Controller
         ]);
     }
 
+    protected function renderDestroyWithError(int $id, string $error): void
+    {
+        $config = $this->config();
+        $row = $this->normalizeRecord($this->findRecord($id), $config['field']);
+
+        if ($row === null) {
+            $this->redirect($config['listPath']);
+        }
+
+        view($config['destroyView'], [
+            'title' => $config['destroyTitle'],
+            'heading' => $config['destroyHeading'],
+            'row' => $row,
+            'field' => $config['field'],
+            'formAction' => $config['deletePath'],
+            'cancelPath' => $config['showPath'],
+            'error' => $error
+        ]);
+    }
 }
