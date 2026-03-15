@@ -47,11 +47,10 @@ class AccountRepository extends BaseRepository
 
     /**
      * Returns only non-archived accounts by default.
-     * Requires rpaccounts.is_archived column.
      */
     public function all(): array
     {
-        $query = "SELECT id, account_name, account_type_id
+        $query = "SELECT id, account_name, account_type_id, is_archived, archived_at
                   FROM " . static::$table . "
                   WHERE is_archived = 0
                   ORDER BY account_name ASC";
@@ -62,10 +61,23 @@ class AccountRepository extends BaseRepository
     }
 
     /**
-     * Returns ALL accounts, including archived ones.
-     * Useful for an "Archived Accounts" view or admin screens.
-     *
-     * Note: This selects is_archived and archived_at so your UI can display status.
+     * Returns only archived accounts.
+     */
+    public function allArchived(): array
+    {
+        $query = "SELECT id, account_name, account_type_id, is_archived, archived_at
+                  FROM " . static::$table . "
+                  WHERE is_archived = 1
+                  ORDER BY account_name ASC";
+
+        $results = DatabaseHelper::fetchAllByQuery($query);
+
+        return array_map(fn($row) => new Account($row), $results);
+    }
+
+    /**
+     * Returns all accounts, including archived ones.
+     * Useful for admin/debug screens.
      */
     public function allIncludingArchived(): array
     {
@@ -90,14 +102,9 @@ class AccountRepository extends BaseRepository
 
     /**
      * Archive (soft delete) an account. Keeps transactions intact.
-     * Requires:
-     *  - rpaccounts.is_archived TINYINT(1) NOT NULL DEFAULT 0
-     * Optional:
-     *  - rpaccounts.archived_at DATETIME NULL
      */
     public function archive(int $id): bool
     {
-        // If you did NOT add archived_at, remove ", archived_at = NOW()" from this SQL.
         $sql = "UPDATE " . static::$table . "
                 SET is_archived = 1, archived_at = CURRENT_TIMESTAMP
                 WHERE id = :id";
@@ -133,7 +140,6 @@ class AccountRepository extends BaseRepository
     {
         error_log("🔍 updateBalances() called for accounts!");
 
-        // Proceed with balance updates
         DatabaseHelper::executeQuery("START TRANSACTION");
 
         $query1 = "UPDATE account_balances ab

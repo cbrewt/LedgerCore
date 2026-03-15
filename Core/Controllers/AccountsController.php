@@ -19,13 +19,14 @@ class AccountsController extends Controller
     public function index(): void
     {
         $showArchived = isset($_GET['archived']) && $_GET['archived'] === '1';
+
         $accounts = $showArchived
-            ? $this->accountRepo()->allIncludingArchived()
+            ? $this->accountRepo()->allArchived()
             : $this->accountRepo()->all();
 
         view('accounts/index.view.php', [
             'title' => 'Accounts',
-            'heading' => $showArchived ? 'Accounts (Including Archived)' : 'Accounts',
+            'heading' => $showArchived ? 'Archived Accounts' : 'Accounts',
             'accounts' => $accounts,
             'showArchived' => $showArchived
         ]);
@@ -50,6 +51,7 @@ class AccountsController extends Controller
             'rpaccount_id' => $accountId,
             'include_unposted' => 0
         ];
+
         $transactions = $this->transactionRepo()->getFiltered($filters, $limit, $offset, $sortField, $sortOrder);
         $totalTransactions = $this->transactionRepo()->countFiltered($filters);
         $totalPages = ceil($totalTransactions / $limit);
@@ -242,6 +244,7 @@ class AccountsController extends Controller
         if ($attemptedName !== null) {
             $account->account_name = $attemptedName;
         }
+
         if ($attemptedTypeId !== null) {
             $account->account_type_id = $attemptedTypeId;
         }
@@ -254,5 +257,4 @@ class AccountsController extends Controller
             'error' => $error
         ]);
     }
-
 }
