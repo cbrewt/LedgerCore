@@ -49,7 +49,7 @@ class AccountsController extends Controller
 
         $filters = [
             'rpaccount_id' => $accountId,
-            'include_unposted' => 0
+            'include_unposted' => 1
         ];
 
         $transactions = $this->transactionRepo()->getFiltered($filters, $limit, $offset, $sortField, $sortOrder);
