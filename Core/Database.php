@@ -36,11 +36,11 @@ class Database
         if (self::$instance === null) {
             $dsn = getenv('DB_DSN');
             $username = getenv('DB_USER') !== false ? (string) getenv('DB_USER') : 'root';
-            $password = getenv('DB_PASS') !== false ? (string) getenv('DB_PASS') : 'navajo88';
+            $password = getenv('DB_PASS') !== false ? (string) getenv('DB_PASS') : '';
 
             if ($dsn === false || $dsn === '') {
                 $host = getenv('DB_HOST') !== false ? (string) getenv('DB_HOST') : '127.0.0.1';
-                $dbName = getenv('DB_NAME') !== false ? (string) getenv('DB_NAME') : 'rpfinance';
+                $dbName = getenv('DB_NAME') !== false ? (string) getenv('DB_NAME') : 'ledgercore_demo';
                 $charset = getenv('DB_CHARSET') !== false ? (string) getenv('DB_CHARSET') : 'utf8';
                 $dsn = "mysql:host={$host};dbname={$dbName};charset={$charset}";
             }
