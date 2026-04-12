@@ -5,7 +5,7 @@ return [
     'database' => [
 
         'host' => 'localhost',
-        'dbname' => 'rpfinance',
+        'dbname' => 'ledgercore_demo',
         'charset' => 'utf8mb4'
 
     ]
