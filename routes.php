@@ -2,6 +2,7 @@
 
 use Core\Controllers\AccountsController;
 use Core\Controllers\CategoriesController;
+use Core\Controllers\CreditCardsController;
 use Core\Controllers\PayeesController;
 use Core\Controllers\ReconcileController;
 use Core\Controllers\TransactionsController;
@@ -60,7 +61,7 @@ $router->post('/categories/category', [CategoriesController::class, 'store']);
 $router->patch('/categories/update', [CategoriesController::class, 'update']);
 $router->delete('/categories/category', [CategoriesController::class, 'delete']);
 
-// Transaction_type Routes
+// Transaction Type Routes
 $router->get('/types/type', [TypesController::class, 'index']);
 $router->get('/types/type_create', [TypesController::class, 'create']);
 $router->get('/types/type_show', [TypesController::class, 'show']);
@@ -71,6 +72,6 @@ $router->patch('/types/type', [TypesController::class, 'update']);
 $router->delete('/types/type', [TypesController::class, 'delete']);
 
 // Credit Card Routes
-$router->get('/creditcards/creditcard', 'controllers/creditcards/index.php');
+$router->get('/creditcards/creditcard', [CreditCardsController::class, 'index']);
 
 return $router;
